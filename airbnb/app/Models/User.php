@@ -45,4 +45,22 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    // Kapcsolat a comments táblával
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    // Kapcsolat a orders táblával
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    // Kapcsolat a apartments táblával (ha a felhasználónak több apartmanja van)
+    public function apartments()
+    {
+        return $this->hasMany(Apartment::class);
+    }
 }
