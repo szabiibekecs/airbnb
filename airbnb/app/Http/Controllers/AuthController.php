@@ -36,4 +36,11 @@ class AuthController extends Controller
 
         return response()->json($users);
     }
+
+    public function login(Request $request){
+        $request->validate([
+            'email'=>'required|string|max:255',
+            'password'=>'required|string|max:6'
+        ]);
+    }
 }
